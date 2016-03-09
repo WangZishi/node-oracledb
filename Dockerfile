@@ -11,9 +11,7 @@ RUN apt-get update && \
 RUN alien -i oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm && \
     alien -i oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm
 
-WORKDIR /root/.node_modules
+WORKDIR /usr/src
 RUN npm install oracledb
 
-WORKDIR /usr/src/app
-VOLUME /usr/src/app
-EXPOSE 4000
+CMD ["node"]
