@@ -1,5 +1,5 @@
-FROM node:5.7.1
-MAINTAINER Wang Zishi "ynh.2@outlook.com"
+FROM node:5.8.0
+MAINTAINER Wang Zishi <ynh.2@outlook.com>
 
 WORKDIR /tmp
 COPY pkg/* ./
@@ -12,7 +12,7 @@ RUN apt-get update && \
 RUN alien -i oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm && \
     alien -i oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm
 
-WORKDIR /usr/src
+WORKDIR /
 RUN npm install oracledb
 
 CMD ["node"]
