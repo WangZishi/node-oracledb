@@ -1,4 +1,4 @@
-FROM node:6.2.0
+FROM node:6.2.2
 MAINTAINER Wang Zishi <ynh.2@outlook.com>
 
 # 设置系统时区
