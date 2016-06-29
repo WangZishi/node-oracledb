@@ -1,4 +1,4 @@
-FROM node:5.9.0
+FROM node:6.2.0
 MAINTAINER Wang Zishi <ynh.2@outlook.com>
 
 # 设置系统时区
@@ -18,8 +18,9 @@ RUN apt-get update && \
 RUN alien -i oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm && \
     alien -i oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm
 
-# 安装 oracledb 及 excel
+# 全局安装 oracledb 及 excel，并修改 NODE_PATH
 WORKDIR /
-RUN npm install oracledbl excel
+RUN npm install oracledb excel -g
+ENV NODE_PATH=/usr/local/lib/node_modules
 
 CMD ["node"]
